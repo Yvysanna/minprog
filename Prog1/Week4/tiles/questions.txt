@@ -1,0 +1,11 @@
+0. Besides 4 × 4, what other dimensions does the framework allow?
+3 x 3
+1. With what sort of data structure is the game’s board represented?
+2D Array
+2. What number is used in the board data structure to signify the empty tile?
+0
+3. What functions do you apparently need to implement?
+init_board
+move
+
+

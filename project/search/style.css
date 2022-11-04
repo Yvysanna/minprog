@@ -1,0 +1,15 @@
+.links{
+    text-align: right;
+
+}
+
+.logo{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+form{
+    display: grid;
+    place-items: center;
+}
