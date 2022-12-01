@@ -1,0 +1,35 @@
+{% extends "auctions/layout.html" %}
+
+{% block title %}
+    Watchlist
+{% endblock %}
+
+{% block body %}
+
+    {% if not user.watchlist.all %}
+        <h2><br>You're not watching any listings yet!</h2>
+    {% else %}
+        <ul>
+            <li><h2> {{ user }}'s watchlist: </h2></li>
+            {% for listing in user.watchlist.all %}
+                <div class="col">
+                    <li><a href="{% url 'listing' listing.title %}">{{ listing.title }}</a></li>
+                    <li>Current price is €{{ listing.price }},- </li>
+                    <li>
+                        {% if listing not in user.watchlist.all %}
+                            <form action="{% url 'add_to_watchlist' listing.title %}" method="post">
+                                {% csrf_token %}
+                                <button class="btn btn-outline-primary" type="submit">Watch Listing</button>
+                            </form>
+                        {% else %}
+                            <form action="{% url 'add_to_watchlist' listing.title %}" method="post">
+                                {% csrf_token %}
+                                <button class="btn btn-outline-primary" type="submit">Stop Watching</button>
+                            </form>
+                        {% endif %}
+                    </li>
+                </div>
+            {% endfor %}
+        </ul>
+    {% endif %}
+{% endblock %}

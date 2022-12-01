@@ -1,0 +1,29 @@
+{% extends "wildernis/layout.html" %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="col">
+                <h2> Wildernis planten</h2>
+                
+                <!-- Find new plant form -->
+                <form action="{% url 'results' %}" method="get">
+                    <input name="q" type="text" placeholder="naam van plant">
+                    <button type="submit" class="btn btn-primary">Zoeken</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- All plants -->
+        <div class="row">
+            {% for plant in plants %}
+                <div class="col">
+                    <div class="block">
+                        <li><a href="{% url 'plant' plant.id %}">{{ plant.naam }}</li>
+                        <li><a href="{% url 'plant' plant.id %}"><img class="all_plants" src='{{ MEDIA_URL }}{{ plant.image }}'alt="plant.naam"></a></li>
+                    </div>
+                </div>
+            {% endfor %} 
+        </div>
+    </div>
+{% endblock %}

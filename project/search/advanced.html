@@ -12,27 +12,21 @@
         <div>
             <img class="logo" src="https://1000logos.net/wp-content/uploads/2021/05/Google-logo-1536x864.png" alt="Google Logo" style="width:200px;height:110px;">
             <h3 style="color:red; padding:20px">Advanced Search</h3>
-
+        </div>
+        <div class="forms">
             <form action="https://www.google.com/search">
-                all these words:
-                <input type="text" name="as_q">
-                <input type="submit" value="Google Search">
+                <ul>
+                        <label>all these words:</label>
+                        <input type="text" name="as_q">
+                        <label>this exact word or phrase:</label>
+                        <input type="text" name="as_epq">
+                        <label>any of these words:</label>
+                        <input type="text" name="as_oq">
+                        <label>none of these words:</label>
+                        <input type="text" name="as_eq">
+                </ul>
+                <input type="submit">
             </form>
         </div>
-        <form action="https://www.google.com/search">
-            this exact word or phrase:
-            <input type="text" name="as_epq">
-            <input type="submit" value="Google Search">
-        </form>
-        <form action="https://www.google.com/search">
-            any of these words:
-            <input type="text" name="as_oq">
-            <input type="submit" value="Google Search">
-        </form>
-        <form action="https://www.google.com/search">
-            none of these words:
-            <input type="text" name="as_eq">
-            <input type="submit" value="Google Search">
-        </form>
     </body>
 </html>

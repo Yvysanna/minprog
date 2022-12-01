@@ -1,0 +1,105 @@
+/* styling for the body of pages */
+body {
+    background-color: white;
+    font-family: serif;
+}
+
+/* buttons overwriting bootstrap css for the forms */
+.btn.btn-primary {
+    background: darkgray;
+    border: None;
+    display: inline-block;
+    margin: 10px auto 0px auto;
+}
+
+/* to center overwriting bootstrap css for the forms */
+.col-sm-10.col-lg-10 {
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+/* the headers */
+h1 {
+    margin-top: 0px;
+    padding-top: 20px;
+}
+
+h2 {
+    font-size: 30px;
+}
+
+/* center logo in sidebar */
+#logo {
+    display: block;
+    margin-right: auto;
+    margin-left: auto;
+}
+
+/* make links in sidebar bigger */
+.link a {
+    font-size: 15pt;
+}
+
+/* make links in sidebar bigger */
+.sidebar.col-lg-2.col-md-3 {
+    font-size: 18px;
+}
+
+/* styling main content */
+.main {
+    font-size: 20px;
+    padding: 20px;
+}
+
+/* styling for ordered lists */
+ol {
+    font-size: 18px;
+    margin-top: 10px;
+}
+
+/* container for sidebar */
+.row {
+    margin-right: auto;
+    margin-left: auto;
+    text-align: center;
+}
+
+/* center container */
+.row h2 {
+    margin-left: 40px;
+    margin-bottom: 5px;
+    margin-top: 20px;
+}
+
+/* styling for search bar */
+.search {
+    font-size: 15px;
+    line-height: 20px;
+    margin: 10px;
+    margin-left: 0px;
+    text-align: center;
+    width: 100%;
+}
+
+/* styling for side bar */
+.sidebar {
+    background-color: #f0f0f0;
+    height: 100vh;
+    padding: 20px;
+}
+
+.sidebar h2 {
+    margin-top: 5px;
+}
+
+/* resize bootstrap form */
+textarea {
+    border-radius: 5px;
+    padding: 10px 20px;
+}
+
+/* styling unordered list */
+ul {
+    text-align: left;
+}

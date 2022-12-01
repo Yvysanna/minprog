@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+      <title>Advanced Search</title>
+      <link rel="stylesheet" href="styles.css">
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    </head>
+    <header>
+      <nav><a href="index.html"> Google Search</a></nav>
+      <div id="advanced-header"> Advanced Search </div>
+    </header>
+    <body id="advanced-search">
+      <h4>Find pages with...</h4>
+      <form action = "https://google.com/search" >
+          <div class="form-group row">
+            <label class="col-sm-2 col-form-label col-form-label-sm">all these words:</label>
+            <div class = "col-sm-10">
+              <input type="text" name="as_q" class="form-control form-control-sm" id="colFormLabelSm">
+            </div>
+            <label class="col-sm-2 col-form-label col-form-label-sm">this exact word or phrase:</label>
+            <div class="col-sm-10">
+              <input type="text" name="as_epq" class="form-control form-control-sm" id="colFormLabelSm">
+            </div>
+            <label class="col-sm-2 col-form-label col-form-label-sm">any of these words:</label>
+            <div class = "col-sm-10">
+              <input type="text" name="as_oq" class="form-control form-control-sm" id="colFormLabelSm">
+            </div>
+              <label class="col-sm-2 col-form-label col-form-label-sm">none of these words:</label>
+              <div class = "col-sm-10">
+                <input type="text" name="as_eq" class = "form-control form-control-sm" id="colFormLabelSm">
+            <div> 
+              <input id="advanced-button" value="Advanced search"type="submit"> 
+            </div>
+          </div>
+      </form>
+    </body>
+</html>

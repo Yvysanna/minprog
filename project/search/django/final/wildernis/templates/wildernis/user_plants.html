@@ -1,0 +1,34 @@
+{% extends "wildernis/layout.html" %}
+{% load static %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+           <div class="block">
+                <h3><i>{{ user.username}}'s</i> planten</h3>
+                {% if plants %}
+
+                    <!-- Plants from the user -->
+                    {% for plant in plants %}
+                        <div class="col">
+                            <h4><li><a href="{% url 'user_plant' id=plant.id username=user %}"><b>{{ plant.naam }}</li></h4>
+                            <li><a href="{% url 'user_plant' id=plant.id username=user %}">
+                            <img class="all_plants" src='{{ MEDIA_URL }}{{ plant.image }}'alt="plant.naam"></a></li>
+                            <li>{{ plant.date_added }}
+                        </div> 
+                    {% endfor %}
+
+                <!-- If user has no plants yet -->
+                {% else %}
+                    <div class="col">
+                        <h4><li>Je hebt nog geen planten toegevoegd!</li></h4>
+                        <li><img src="{% static 'wildernis/media/geen_planten.png' %}" alt="plant"></img></li>
+                        
+                        <!-- Add plants -->
+                        <button class="button-plants"> <a href="{% url 'plants' %}">Alle planten</a></button>
+                    </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+{% endblock %}

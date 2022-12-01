@@ -1,0 +1,25 @@
+{% extends "auctions/layout.html" %}
+
+{% block title %}
+    All listings
+{% endblock %}
+
+{% block body %}
+    <ul>
+    <li><h2> All listings</h2></li>
+        {% for listing in listings %}
+            <div class="col">
+                <li> Title: <a href="{% url 'listing' listing.title %}"> {{ listing.title }}</a></li>
+                <li> Date: {{ listing.date }}</li>
+                <li> Owner: {{ listing.owner }}</li>
+                <li>
+                    {% if listing.opened == True %}
+                        Status: Open
+                    {% else %}
+                        Status: Closed 
+                    {% endif %}
+                </li>
+            </div>
+        {% endfor %}
+    </ul>
+{% endblock %} 

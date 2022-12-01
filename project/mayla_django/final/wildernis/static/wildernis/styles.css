@@ -1,0 +1,171 @@
+a {
+    color:#363636;
+    text-decoration:None;
+}
+
+a:hover {
+    opacity:0.75;
+    color:#e7e7e7;
+}
+
+.all_plants {
+    height:300px;
+    width:250px;
+}
+
+.block {
+    padding:25px;
+    margin:auto;
+    text-align:center;
+}
+
+body {
+    margin:auto;
+    background-color:#d4c3aa;
+    font-family:Montserrat;
+    line-height:1.6em;
+    text-align:center;
+}
+
+#bottom_right {
+    position:fixed;
+    bottom:0px;
+    right:0px;
+}
+
+#bottom_left {
+    position:fixed;
+    bottom:0px;
+    left:0px;
+}
+
+.btn.btn-primary {
+    background-color:#869286;
+    border-color:#333333;
+    color:#333333;
+    margin:5px;
+    padding:6px;
+}
+
+.btn.btn-primary:hover {
+    padding:6px;
+    opacity:0.75;
+}
+
+.button-plants {
+    display:block;
+    padding:.4em .8em;
+    font-size:.9em;
+    font-weight:700;
+    border-color:#e7e7e7;
+    border-width:2px;
+    border-style:solid;
+    text-align:center;
+    white-space: nowrap;
+    width:auto;
+    display:inline-block;
+    margin:15px;
+}
+
+.button-plants:hover {
+    background-color: rgb(206,141,114);
+}
+
+.col {
+    display:inline-block;
+    vertical-align:top;
+    text-align:center; 
+    margin:10px;
+}
+
+.col-4 {
+    text-align:center;
+    padding:25px;
+    vertical-align:middle;
+}
+
+.form-control {
+    text-align:center;
+    padding:5px;
+}
+
+.form-group {
+    padding:5px;
+}
+
+h2 {
+    margin:25px;
+}
+
+h3 {
+    margin:25px;
+}
+
+.header {
+    top:8px;
+    right:16px;
+    font-size:18px;
+}
+
+img {
+    height:245px;
+    width:250px;
+}
+
+input {
+    text-align:center;
+    font-size:12px;
+}
+
+input#id_image {
+    margin:25px;
+}
+
+#logo {
+    height:90px;
+    width:90px;
+}
+
+li {
+    list-style-type:None;
+    padding:5px;
+}
+
+.navbar {
+    padding:None;
+    display:flex;
+}
+
+.navbar-expand-lg {
+    background-color:#595d40;
+}
+
+.nav-item .nav-link {
+    padding:50px;
+}
+
+.navbar-nav .nav-link {
+    color:white;
+    margin-left:1em;
+    margin-right:1em;
+    padding-right:1em;
+}
+
+.progress {
+    width:250px;
+    height:250px;
+    border:#d4c3aa;
+    display:inline-block;
+}
+
+.search { 
+    display:flex; 
+    justify-content:flex-end;
+}
+
+.top_right_button {
+    right:0px;
+    position:absolute;
+    margin:10px;
+    margin-top:25px;
+}

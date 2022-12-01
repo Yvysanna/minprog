@@ -1,0 +1,38 @@
+{% extends "wildernis/layout.html" %}
+{% load static %}
+
+{% block body %}
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col">
+                <li><h3>{{ user.username}}'s verlanglijst</h3></li>
+
+                {% if user.wishlist.all %}
+
+                    <!-- Wishlist items -->
+                    <div>
+                        {% for plant in user.wishlist.all %}
+                            <li>{{ plant.naam }}</li>
+                            <li><img src='{{ MEDIA_URL }}{{ plant.image }}'></li> 
+
+                            <!-- Remove plant from wishlist -->
+                            {% if plant in user.wishlist.all %}
+                                <form action="{% url 'add_wishlist' plant.id %}" method="post">
+                                    {% csrf_token %}
+                                <button class="button-plants" type="submit">Verwijder</button> </form>
+                            {% endif %}
+                        {% endfor %}
+                    </div>
+                
+                <!-- If wishlist is empty -->
+                {% else %}
+                <div>
+                    <h5> Je verlanglijst is leeg... Weet je echt zeker dat je geen <a href="{% url 'plants' %}">nieuwe planten </a> meer nodig hebt? </h5>
+                    <button class="button-plants"><a href="{% url 'plants' %}">Alle planten</a></button>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+    </div>
+    <img id="bottom_left" src="{% static 'wildernis/media/bottom_left.png' %}" alt="bottom_left"></img>
+{% endblock %}

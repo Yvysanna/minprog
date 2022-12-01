@@ -1,0 +1,55 @@
+{% extends "wildernis/layout.html" %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+
+            <!-- Search for plants -->
+            <div class="col">
+                <form action="{% url 'results' %}" method="get">
+                    <input name="q" type="text" placeholder="Naam van plant">
+                    <button type="submit" class="btn btn-primary">Zoek</button>
+                </form>
+            </div>
+        </div>
+
+        <!-- Results from query -->
+        {% if results %}  
+            <div class="row">
+                {% for plant in results %}
+
+                    <!-- Show the plants the user doesn't already have -->
+                    {% if plant not in user.plants.all %}
+                        <div class="col">
+                            <div class="block">
+                                <li><a href="{% url 'plant' plant.id  %}">{{ plant.naam }}</li>
+                                <li><a href="{% url 'plant' plant.id %}"><img src='{{ MEDIA_URL }}{{ plant.image }}'></li> 
+
+                                <!-- Add to personal plants -->
+                                <li><form action="{% url 'add_plant' plant.id %}" method="post">
+                                    {% csrf_token %}
+                                <button class="button-plants" type="submit">Voeg toe aan mijn planten</button></form></li>
+
+                                <!-- Add to personal wishlist -->
+                                {% if plant not in user.wishlist.all %}
+                                <li><form action="{% url 'add_wishlist' plant.id %}" method="post">
+                                    {% csrf_token %}
+                                <button class="button-plants" type="submit">Voeg toe aan verlanglijst</button></form></li>
+                                {% endif %}
+                            </div>
+                        </div>
+                    {% endif %}
+                {% endfor %} 
+
+        <!-- If no results -->
+        {% else %}
+            <div class="row">
+                <div class="col">
+                    <div class="block">
+                        <h4><li>Sorry, we hebben geen planten gevonden. Probeer het nog een keer!</li><h4>
+                    </div>
+                </div>
+            </div>
+        {% endif %}
+    </div>
+{% endblock %}

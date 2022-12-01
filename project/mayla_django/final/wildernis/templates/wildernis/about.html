@@ -1,0 +1,27 @@
+{% extends "wildernis/layout.html" %}
+{% load static %}
+
+{% block body %}
+    <div class="block">
+        <h2>Over Wildernis</h2>
+        <p>
+            Wildernis is een programmeerproject door en voor plantenliefhebbers.
+            <br><br>
+            Naast dat je inspiratie kunt opdoen voor <a href="{% url 'plants' %}">nieuwe planten</a>, en deze op te slaan in jouw <a href="{% url 'wishlist' %}">eigen verlanglijst</a>,
+            kun je ook je eigen plantkinderen opslaan op je persoonlijke <a href="{% url 'user_plants' user.username %}">Wildernis account</a> 
+            <br><br>
+            Omdat het natuurlijk fantastisch is om kleine plantjes te zien opgroeien tot grote groene monsters, kan je op Wildernis ook gemakkelijk
+            een <a href="{% url 'progress' user.username %}">logboek</a> bijhouden van je plantjes.
+            <br><br>
+            Als kers op de taart biedt de <a href="{% url 'calendar' user.username %}">persoonlijke kalender</a> je automatisch het meest optimale waterggeefschema per plant!
+            <br><br>
+            Heel veel plantplezier!
+            <br><br>
+            Liefs, 
+            <br><br>
+                <h4><i> Wildernis</i></h4>
+            <br>
+            <img src="{% static '/wildernis/media/login_logo.png' %}" alt="logo"/>
+        </p>
+    </div>
+{% endblock %}ß

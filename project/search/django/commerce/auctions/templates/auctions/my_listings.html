@@ -1,0 +1,35 @@
+{% extends "auctions/layout.html" %}
+
+{% block title %}
+    eMay
+{% endblock %}
+
+{% block body %}
+    {% if not user.listings.all %}
+        <h4>You don't own any listings yet!</h4>
+    {% else %}
+        <ul>
+            <li><h2> {{ user }}'s listings: </h2></li>
+            {% for listing in user.listings.all %}    
+                <li> <a href="{% url 'listing' listing.title %}"> {{ listing.title }}</a> </li>
+                <li>
+                    {% if listing.opened == True %}
+                        Status: Open
+                    {% else %}
+                        Status: Closed
+                    {% endif %} 
+                </li>
+                <li> Highest bid: €{{ listing.price }},- by {{ listing.highest_bidder }} </li>
+
+                {% if listing.opened %}
+                    <li>
+                        <form action="{% url 'close_listing' listing.title %}" method="post">
+                            {% csrf_token %}
+                        <button class="btn btn-outline-primary" type="submit">Close This Listing</button>
+                        </form>
+                    </li>
+                {% endif %}
+        {% endfor %}
+        </ul>
+    {% endif %}
+{% endblock %}

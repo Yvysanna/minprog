@@ -1,0 +1,42 @@
+{% extends "wildernis/layout.html" %}
+
+{% block body %}
+    <div class="block">
+
+        <!-- Plant information -->
+        <div>
+            <li><h3>{{ plant.naam }}</h3></li>
+            <li><img class="all_plants" src='{{ MEDIA_URL }}{{ plant.image }}'alt="plant.naam"></a></li>  
+            <li>{{ plant.beschrijving }}</li>
+            <li>Toegevoegd op: {{ plant.date_added }}
+        </div>
+
+        <!-- Remove plant -->
+        <div>
+            <form action="{% url 'add_plant' plant.id %}" method="post">
+                {% csrf_token %}
+            <button class="btn btn-primary" type="submit">Verwijderen</button> </form> 
+        </div>
+    </div>
+
+    <div class="block">
+
+        <!-- Progress -->
+        <div>
+            <h4>Logboek van {{plant.naam}}</h4>
+            {% if plant.progress.all %}
+                {% for plant in plant.progress.all %}
+                    <li>{{ plant.plant }}</li>
+                    <li><img class="progress" src='{{ MEDIA_URL }}{{ plant.image }}'></a><li>
+                    <li>{{ plant.date }}</li>
+                    <li>{{ plant.description }}</li>
+                {% endfor %}
+            {% endif %}
+        </div>
+
+        <!-- Add pictures -->
+        <div>
+            <button class="btn btn-primary"><a href="{% url 'add_progress' %}">Voeg foto toe</a></button>
+        </div>
+    </div>
+{% endblock %}

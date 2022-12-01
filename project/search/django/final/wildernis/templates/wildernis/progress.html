@@ -1,0 +1,36 @@
+{% extends "wildernis/layout.html" %}
+{% load static %}
+
+{% block body %}
+    <div class="container">
+        <div class="row">
+            <div class="block">
+                <h1>Logboek</h1>
+
+                <!-- Add pictures -->
+                <button class="button-plants"> <a href="{% url 'add_progress' %}">Foto's toevoegen!</a></button>
+
+                <!-- Loop through plants-->
+                {% for plant in plants %}
+                    <h3><li><a href="{% url 'user_plant' id=plant.id username=user  %}">{{ plant.naam }}</a></li></h3>
+
+                    <!-- If progress is uploaded -->
+                    {% if plant.progress.all %}
+
+                        <!-- Progress of plants -->
+                        {% for plant in plant.progress.all %}
+                            <li><img class="progress" src='{{ MEDIA_URL }}{{ plant.afbeelding }}'></a><li>
+                            <li>{{ plant.datum }}</li>
+                            <li>{{ plant.beschrijving }}</li>
+                        {% endfor %}
+                    {% else %}
+                        <li>Nog geen updates</li>
+                    {% endif %}
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <img id="bottom_right" src="{% static 'wildernis/media/bottom_right.png' %}" alt="bottom_right"></a></img>
+{% endblock %}
+
+

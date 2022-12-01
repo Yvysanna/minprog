@@ -1,0 +1,48 @@
+{% extends "wildernis/layout.html" %}
+
+{% block body %}
+
+    <!-- Go to personal plant page -->
+    <div class="top_right_button">
+        {% if plant in request.user.plants.all %}
+            <button class="button-plants"> <a href="{% url 'user_plant' id=plant.id username=user %}"><i>Mijn {{plant.naam}}</i></a></button>
+        {% endif %}
+    </div>
+
+    <div class="block">
+
+        <!-- Description -->
+        <div>
+            <li><h2>{{ plant.naam }}</h2></li>
+            <li><img class="all_plants" src='{{ MEDIA_URL }}{{ plant.image }}'alt="plant.naam"></a></li>  
+            <li><i>Latijnse naam: </i>{{ plant.latijn }}</li>
+            <li><i>Moeilijkheid: </i>{{ plant.moeilijkheid }}
+            <li><i></i> {{ plant.description }}</li>
+            <li><i>Standplaats: </i>{{ plant.zonlicht }}</li>
+            <li><i>Grootte: </i>{{ plant.grootte }}</li>
+            <li><i>Water: </i>{{ plant.water }}</li>
+        </div>
+        
+        <!-- Add/Remove Wishlist -->
+        <div>
+            {% if plant not in user.wishlist.all %}
+                <form action="{% url 'add_wishlist' plant.id %}" method="post">
+                    {% csrf_token %}
+                <button class="btn btn-primary" type="submit">Toevoegen aan verlanglijst</button></form>
+            {% else %}
+                <form action="{% url 'add_wishlist' plant.id %}" method="post">
+                    {% csrf_token %}
+                <button class="btn btn-primary" type="submit">Verwijderen uit verlanglijst</button></form> 
+            {% endif %}
+        </div>
+
+        <!-- Add plant -->
+        <div>
+            {% if plant not in user.plants.all %}
+                <form action="{% url 'add_plant' plant.id %}" method="post">
+                    {% csrf_token %}
+                <button class="btn btn-primary" type="submit">Toevoegen aan planten</button></form>
+            {% endif %}
+        </div>
+    </div>
+{% endblock %}

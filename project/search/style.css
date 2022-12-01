@@ -9,7 +9,19 @@
     margin-right: auto;
 }
 
-form{
+.form{
     display: grid;
     place-items: center;
+}
+
+div.forms{
+    display: inline-block;
+    place-items: center;
+    vertical-align: middle;
+    margin-left:20px
+}
+
+label {
+    float: left;
+    text-align: right;
 }
